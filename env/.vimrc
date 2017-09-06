@@ -102,7 +102,7 @@ let g:ycm_show_diagnostics_ui = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 
-let g:ycm_global_ycm_extra_conf = '~/tool/env/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/tools/env/.ycm_extra_conf.py'
 
 nnoremap <silent> <F3> : YcmForceCompileAndDiagnostics<CR>
 
