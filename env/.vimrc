@@ -247,6 +247,6 @@ autocmd FileType c,cpp,cs,java,php,ruby,python autocmd BufWritePre <buffer> :cal
 " }}}
 
 " DoxygenToolkit {{{
-let g:DoxygenToolkit_authorName="Jinhwa Joung <jinhwa.joung@lge.com>"
+let g:DoxygenToolkit_authorName="Jinhwa Joung"
 nnoremap <silent> <F8> :Dox<CR>
 " }}}
