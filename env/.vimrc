@@ -169,6 +169,7 @@ cnoreabbrev ag Ack!
 
 " Tagbar settings {{{
 nnoremap <silent> <F7> :TagbarToggle<CR>
+let g:tagbar_sort = 0
 " }}}
 
 " ctrlp settings {{{
