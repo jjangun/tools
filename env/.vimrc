@@ -165,6 +165,7 @@ if executable('ag')
 endif
 
 cnoreabbrev ag Ack!
+nnoremap <leader>ag :Ack!<CR>
 " }}}
 
 " Tagbar settings {{{
