@@ -22,8 +22,7 @@ alias cd..='cd ..'
 # }}}
 
 # minicom {{{
-MINICOM='-c on'
-export MINICOM
+alias minicom='minicom -c on'
 # }}}
 
 # etc {{{
