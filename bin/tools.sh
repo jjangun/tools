@@ -21,6 +21,10 @@ source acd_func.sh
 alias cd..='cd ..'
 # }}}
 
+# minicom {{{
+alias minicom='minicom -c on'
+# }}}
+
 # etc {{{
 export TERM='xterm-256color'
 # }}}
