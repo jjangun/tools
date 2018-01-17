@@ -51,7 +51,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
-Plugin 'The-NERD-Commenter'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'DoxygenToolkit.vim'
 
 Plugin 'jjangun/gtags.vim'
