@@ -55,6 +55,16 @@ else
     rm -rf $HOME/$global_archive
     rm -rf $HOME/$global_version
     echo "global install done"
+    
+    echo "Install fixpath"
+    git clone https://github.com/xaljox/fixpath.git $HOME/.tools/fixpath
+    cd $HOME/.tools/fixpath
+    ./configure --prefix=$HOME/.tools
+    make
+    make install
+    
+    echo "Remove fixpath directory"
+    rm -rf $HOME/.tools/fixpath
 fi
 
 echo "Completed!"
