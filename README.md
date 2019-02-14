@@ -14,7 +14,7 @@ sh ~/.tools/bin/install.sh
 
 Please check bellow comment if you use linux (ubuntu base).
 -----------
-sudo apt-get install git vim build-essential cmake clang exuberant-ctags libncurses5-dev libncurses5 python-dev python3-dev python-pip python-setuptools
+sudo apt-get install git vim build-essential cmake automake1.11 clang exuberant-ctags libncurses5-dev libncurses5 python-dev python3-dev python-pip python-setuptools
 
 Please check bellow comment if you use cygwin.
 -----------
