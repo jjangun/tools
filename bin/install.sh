@@ -5,6 +5,17 @@ echo "Install packages"
 if [ "$MType" = 'Linux' ]
 then
     sudo apt install zsh autojump silversearcher-ag tig tree git vim build-essential cmake python3-dev clang wget curl exuberant-ctags automake1.11 libncurses5-dev libncurses5
+
+elif [[ "$MType" =~ 'Darwin' ]]
+then
+    echo "Install xcode"
+    xcode-select --install
+
+    echo "Install Homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+    echo "Install packages"
+    brew install iterm2 git zsh zsh-completions wget autojump vim cmake
 fi
 
 echo "Install oh-my-zsh"
@@ -80,6 +91,20 @@ then
 
     echo "Install terminal color"
     bash -c "$(wget -qO- https://git.io/vQgMr)"
+elif [[ "$MType" =~ 'Darwin' ]]
+then
+    echo "Install YouCompleteMe"
+    $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+
+    echo "Install fzf"
+    brew install fzf
+    (brew --prefix)/opt/fzf/install
+
+    echo "Install YouCompleteMe"
+    $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+
+    echo "Install terminal color"
+    bash -c  "$(curl -sLo- https://git.io/vQgMr)"
 fi
 
 echo "Completed!"
