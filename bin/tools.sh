@@ -15,6 +15,16 @@ if [[ "$SHELL" =~ "zsh" ]]; then
         fi
     }
 fi
+
+if [[ "$SHELL" =~ "zsh" && "$ZSH_THEME" == "bullet-train" ]]; then
+    BULLETTRAIN_PROMPT_ORDER=(
+        context
+        dir
+        git
+    )
+
+    BULLETTRAIN_PROMPT_CHAR=\>
+fi
 # }}}
 
 # aliases {{{
