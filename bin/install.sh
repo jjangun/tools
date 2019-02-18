@@ -15,6 +15,7 @@ chsh -s `which zsh`
 
 echo "Change zsh theme"
 wget http://raw.github.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme -P ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/
+
 sed -i -- 's/robbyrussell/bullet-train/g' $HOME/.zshrc
 
 echo "Enable syntax correct"
@@ -56,11 +57,11 @@ then
     tar xvzf $global_archive -C $HOME
 
     cd $HOME/$global_version
-    ./configure --prefix=$HOME/.tools/bin
+    ./configure --prefix=$HOME/.global
     make
     make install
 
-    cp $HOME/.tools/bin/global/share/gtags/gtags.conf $HOME/.globalrc
+    cp $HOME/.global/share/gtags/gtags.conf $HOME/.globalrc
 
     echo "Remove install files"
     rm -rf $HOME/$global_archive
@@ -76,6 +77,9 @@ then
 
     echo "Remove fixpath directory"
     rm -rf $HOME/.tools/fixpath
+
+    echo "Install terminal color"
+    bash -c "$(wget -qO- https://git.io/vQgMr)"
 fi
 
 echo "Completed!"
