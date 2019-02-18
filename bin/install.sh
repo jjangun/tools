@@ -15,8 +15,7 @@ if [ "$OSType" = 'Linux' ]; then
         git tig vim exuberant-ctags \
         build-essential cmake python3-dev clang automake1.11 \
         libncurses5-dev libncurses5
-elif [ "$OSType" = 'Darwin' ]
-then
+elif [ "$OSType" = 'Darwin' ]; then
     echo "Install xcode"
     xcode-select --install
 
@@ -59,8 +58,7 @@ git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 echo "Install Vundle Plugins"
 vim -c :PluginInstall -c :qa
 
-if [ "$OSType" = 'Linux' ]
-then
+if [ "$OSType" = 'Linux' ]; then
     echo "Install YouCompleteMe"
     $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
@@ -100,8 +98,7 @@ then
 
     echo "Install terminal color"
     bash -c "$(wget -qO- https://git.io/vQgMr)"
-elif [ "$OSType" = 'Darwin' ]
-then
+elif [ "$OSType" = 'Darwin' ]; then
     echo "Install YouCompleteMe"
     $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
