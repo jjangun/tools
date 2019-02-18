@@ -1,17 +1,7 @@
 #/bin/bash
 MType=`uname`
-if [[ "$MType"  = *"CYGWIN"* ]]
-then
-    export PATH+=:$HOME/.tools/bin:$HOME/.tools/bin/global/bin
-else
-    export PATH+=:$HOME/.tools/bin:$HOME/.tools/bin/global/bin
 
-    # powerline {{{
-    if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
-        source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
-    fi
-    # }}}
-fi
+export PATH=:$HOME/.tools/bin:$HOME/.tools/bin/global/bin:$PATH
 
 # sources {{{
 source acd_func.sh
@@ -19,6 +9,10 @@ source acd_func.sh
 
 # aliases {{{
 alias cd..='cd ..'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 # }}}
 
 # minicom {{{
@@ -28,3 +22,4 @@ export MINICOM="-m -c on"
 # etc {{{
 export TERM='xterm-256color'
 # }}}
+
