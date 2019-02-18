@@ -10,7 +10,7 @@ How to Install tools?
 -----------
 git clone https://github.com/jjangun/tools.git ~/.tools
 
-sh ~/.tools/bin/install.sh
+bash ~/.tools/bin/install.sh
 
 Please check bellow comment if you use cygwin.
 -----------

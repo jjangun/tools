@@ -4,7 +4,9 @@ MType=`uname`
 export PATH=$PATH:$HOME/.tools/bin:$HOME/.global/bin
 
 # sources {{{
-source acd_func.sh
+if [[ "$SHELL" =~ "bash" ]]; then
+    source acd_func.sh
+fi
 # }}}
 
 # for zsh {{{

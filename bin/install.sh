@@ -1,19 +1,30 @@
 #!/bin/sh
 OSType=`uname`
 SUDO=
-echo "Check root user"
-if [ "$(id -u)" != "0" ]; then
-    SUDO="sudo"
-fi
 
 echo "Install packages"
 if [ "$OSType" = 'Linux' ]; then
+    echo "Check root user"
+    if [ "$(id -u)" != "0" ]; then
+        SUDO="sudo"
+    fi
+
     $SUDO apt install \
         wget curl  \
         zsh autojump silversearcher-ag tree \
         git tig vim exuberant-ctags \
         build-essential cmake python3-dev clang automake1.11 \
         libncurses5-dev libncurses5
+elif [ "$OSType" = 'Darwin' ]
+then
+    echo "Install xcode"
+    xcode-select --install
+
+    echo "Install Homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+    echo "Install packages"
+    brew install iterm2 git zsh zsh-completions wget autojump vim cmake
 fi
 
 echo "Install oh-my-zsh"
@@ -89,6 +100,20 @@ then
 
     echo "Install terminal color"
     bash -c "$(wget -qO- https://git.io/vQgMr)"
+elif [ "$OSType" = 'Darwin' ]
+then
+    echo "Install YouCompleteMe"
+    $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+
+    echo "Install fzf"
+    brew install fzf
+    (brew --prefix)/opt/fzf/install
+
+    echo "Install YouCompleteMe"
+    $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+
+    echo "Install terminal color"
+    bash -c  "$(curl -sLo- https://git.io/vQgMr)"
 fi
 
 echo "Completed!"
