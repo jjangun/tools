@@ -4,7 +4,7 @@ MType=`uname`
 echo "Install packages"
 if [ "$MType" = 'Linux' ]
 then
-    sudo apt install zsh autojump silversearcher-ag git vim build-essential cmake python3-dev clang wget curl exuberant-ctags automake1.11 libncurses5-dev libncurses5
+    sudo apt install zsh autojump silversearcher-ag tig tree git vim build-essential cmake python3-dev clang wget curl exuberant-ctags automake1.11 libncurses5-dev libncurses5
 fi
 
 echo "Install oh-my-zsh"
