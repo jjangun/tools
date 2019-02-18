@@ -7,6 +7,18 @@ export PATH=:$HOME/.tools/bin:$HOME/.tools/bin/global/bin:$PATH
 source acd_func.sh
 # }}}
 
+# for zsh {{{
+if [[ "$SHELL" =~ "zsh" ]]; then
+    echo "for zsh shell"
+
+    prompt_context() {
+        if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+            prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+        fi
+    }
+fi
+# }}}
+
 # aliases {{{
 alias cd..='cd ..'
 
