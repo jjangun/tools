@@ -60,7 +60,6 @@ Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
@@ -75,7 +74,7 @@ Plugin 'godlygeek/tabular'
 
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'joshdick/onedark.vim'
 Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
@@ -216,19 +215,14 @@ map  N <Plug>(easymotion-prev)
 " }}}
 
 " Color scheme {{{
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=0
-
-colorscheme solarized
-let g:airline_theme='badwolf'
+colorscheme onedark
+let g:airline_theme='onedark'
+" }}}
 
 " Column line 80 highlight {{{
 set colorcolumn=+1
-hi ColorColumn ctermbg=235
+hi ColorColumn ctermbg=236
 set colorcolumn=80
-" }}}
-
 " }}}
 
 " Whitespace & EndingSpace Highlight {{{
