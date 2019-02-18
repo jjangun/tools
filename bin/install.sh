@@ -1,10 +1,19 @@
 #!/bin/sh
-MType=`uname`
+OSType=`uname`
+SUDO=
+echo "Check root user"
+if [ "$(id -u)" != "0" ]; then
+    SUDO="sudo"
+fi
 
 echo "Install packages"
-if [ "$MType" = 'Linux' ]
-then
-    sudo apt install zsh autojump silversearcher-ag tig tree git vim build-essential cmake python3-dev clang wget curl exuberant-ctags automake1.11 libncurses5-dev libncurses5
+if [ "$OSType" = 'Linux' ]; then
+    $SUDO apt install \
+        wget curl  \
+        zsh autojump silversearcher-ag tree \
+        git tig vim exuberant-ctags \
+        build-essential cmake python3-dev clang automake1.11 \
+        libncurses5-dev libncurses5
 fi
 
 echo "Install oh-my-zsh"
@@ -39,7 +48,7 @@ git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 echo "Install Vundle Plugins"
 vim -c :PluginInstall -c :qa
 
-if [ "$MType" = 'Linux' ]
+if [ "$OSType" = 'Linux' ]
 then
     echo "Install YouCompleteMe"
     $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
