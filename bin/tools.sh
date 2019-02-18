@@ -1,7 +1,7 @@
 #/bin/bash
 MType=`uname`
 
-export PATH=$PATH:$HOME/.tools/bin:$HOME/.tools/bin/global/bin
+export PATH=$PATH:$HOME/.tools/bin
 
 # sources {{{
 source acd_func.sh

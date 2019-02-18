@@ -52,12 +52,11 @@ then
     global_archive=$global_version".tar.gz"
     global_down_url="http://ftp.gnu.org/gnu/global/"$global_archive
 
-    mkdir -p $HOME/.tools/bin/global
     wget $global_down_url -P $HOME
     tar xvzf $global_archive -C $HOME
 
     cd $HOME/$global_version
-    ./configure --prefix=$HOME/.tools/bin/global
+    ./configure --prefix=$HOME/.tools/bin
     make
     make install
 
