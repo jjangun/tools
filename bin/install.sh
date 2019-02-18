@@ -2,7 +2,7 @@
 MType=`uname`
 
 echo "Install packages"
-if [ "$MType" = 'Linux' ]
+if [[ "$MType" =~ 'Linux' ]]
 then
     sudo apt install zsh autojump silversearcher-ag tig tree git vim build-essential cmake python3-dev clang wget curl exuberant-ctags automake1.11 libncurses5-dev libncurses5
 
@@ -50,7 +50,7 @@ git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 echo "Install Vundle Plugins"
 vim -c :PluginInstall -c :qa
 
-if [ "$MType" = 'Linux' ]
+if [[ "$MType" =~ 'Linux' ]]
 then
     echo "Install YouCompleteMe"
     $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
