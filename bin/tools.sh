@@ -1,7 +1,7 @@
 #/bin/bash
 MType=`uname`
 
-export PATH=$PATH:$HOME/.tools/bin:$HOME/.global/bin
+export PATH=$PATH:$HOME/.tools/bin:$HOME/.local/bin
 
 # sources {{{
 if [[ "$SHELL" =~ "bash" ]]; then

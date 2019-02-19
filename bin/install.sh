@@ -62,24 +62,20 @@ if [ "$OSType" = 'Linux' ]; then
     echo "Install YouCompleteMe"
     $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
-    echo "Install fzf"
-    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-    $HOME/.fzf/install
-
     echo "Install gnu global"
     global_version="global-6.6.3"
     global_archive=$global_version".tar.gz"
     global_down_url="http://ftp.gnu.org/gnu/global/"$global_archive
 
     wget $global_down_url -P $HOME
-    tar xvzf $global_archive -C $HOME
+    tar xvzf $HOME/$global_archive -C $HOME
 
     cd $HOME/$global_version
-    ./configure --prefix=$HOME/.global
+    ./configure --prefix=$HOME/.local
     make
     make install
 
-    cp $HOME/.global/share/gtags/gtags.conf $HOME/.globalrc
+    cp $HOME/.local/share/gtags/gtags.conf $HOME/.globalrc
 
     echo "Remove install files"
     rm -rf $HOME/$global_archive
@@ -89,12 +85,16 @@ if [ "$OSType" = 'Linux' ]; then
     echo "Install fixpath"
     git clone https://github.com/xaljox/fixpath.git $HOME/.tools/fixpath
     cd $HOME/.tools/fixpath
-    ./configure --prefix=$HOME/.tools
+    ./configure --prefix=$HOME/.local
     make
     make install
 
     echo "Remove fixpath directory"
     rm -rf $HOME/.tools/fixpath
+
+    echo "Install fzf"
+    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+    $HOME/.fzf/install
 
     echo "Install terminal color"
     bash -c "$(wget -qO- https://git.io/vQgMr)"
@@ -104,10 +104,7 @@ elif [ "$OSType" = 'Darwin' ]; then
 
     echo "Install fzf"
     brew install fzf
-    (brew --prefix)/opt/fzf/install
-
-    echo "Install YouCompleteMe"
-    $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+    `brew --prefix`/opt/fzf/install
 
     echo "Install terminal color"
     bash -c  "$(curl -sLo- https://git.io/vQgMr)"
