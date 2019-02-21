@@ -40,57 +40,42 @@ map <C-l> <C-W>l
 map <C-t> :tabnew <CR>
 " }}}
 
-" Vundle settings {{{
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Install Vim Plugins {{{
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'gmarik/Vundle.vim'
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'DoxygenToolkit.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 
-Plugin 'jjangun/gtags.vim'
-Plugin 'mileszs/ack.vim'
+Plug 'jjangun/gtags.vim'
+Plug 'mileszs/ack.vim'
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-airline/vim-airline'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
 
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
+Plug 'Valloric/YouCompleteMe'
+Plug 'rdnetto/YCM-Generator'
 
-Plugin 'tpope/vim-unimpaired'         " Easy way to navigate the quickfix list
+Plug 'tpope/vim-unimpaired'         " Easy way to navigate the quickfix list
 
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 
-Plugin 'Mark--karkat'
+Plug 'vim-scripts/Mark--karkat'
 
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
-Plugin 'joshdick/onedark.vim'
-Plugin 'flazz/vim-colorschemes'
+Plug 'joshdick/onedark.vim'
+Plug 'flazz/vim-colorschemes'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Brief help
-" :PluginList       - likts configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Initialize plugin system
+call plug#end()
 " }}}
 
 " YouCompleteMe {{{

@@ -23,7 +23,11 @@ elif [ "$OSType" = 'Darwin' ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
     echo "Install packages"
-    brew install iterm2 git zsh zsh-completions wget autojump vim cmake
+    brew install \
+        iterm2 \
+        wget curl \
+        zsh zsh-completions autojump \
+        git vim cmake
 fi
 
 echo "Install oh-my-zsh"
@@ -46,21 +50,22 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 sed -i -- 's/(git)/(git autojump zsh-syntax-highlighting zsh-autosuggestions)/g' $HOME/.zshrc
 
+echo "Downloading... vim-plug"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "Install Vundle Plugins"
+vim -c :PlugInstall -c :qa
+
 echo "Append config .vimrc"
 echo "source $HOME/.tools/env/.vimrc" >> $HOME/.vimrc
 
 echo "Append config tools.sh"
 echo "source $HOME/.tools/bin/tools.sh" >> $HOME/.zshrc
 
-echo "Downloading... Vundle"
-git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-
-echo "Install Vundle Plugins"
-vim -c :PluginInstall -c :qa
-
 if [ "$OSType" = 'Linux' ]; then
     echo "Install YouCompleteMe"
-    $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+    $HOME/.vim/plugged/YouCompleteMe/install.py --clang-completer
 
     echo "Install gnu global"
     global_version="global-6.6.3"
@@ -100,7 +105,7 @@ if [ "$OSType" = 'Linux' ]; then
     bash -c "$(wget -qO- https://git.io/vQgMr)"
 elif [ "$OSType" = 'Darwin' ]; then
     echo "Install YouCompleteMe"
-    $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+    $HOME/.vim/plugged/YouCompleteMe/install.py --clang-completer
 
     echo "Install fzf"
     brew install fzf
