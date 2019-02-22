@@ -64,14 +64,14 @@ echo "Downloading... vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-echo "Install Vundle Plugins"
-vim -c :PlugInstall -c :qa
-
 echo "Append config .vimrc"
 echo "source $HOME/.tools/env/.vimrc" >> $HOME/.vimrc
 
 echo "Append config tools.sh"
 echo "source $HOME/.tools/bin/tools.sh" >> $HOME/.zshrc
+
+echo "Install Vundle Plugins"
+vim -c :PlugInstall -c :qa
 
 if [ "$OSType" = 'Linux' ]; then
     echo "Install YouCompleteMe"
