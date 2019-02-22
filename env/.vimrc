@@ -58,8 +58,14 @@ Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 
-Plug 'Valloric/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator'
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --clang-completer
+  endif
+endfunction
+
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 Plug 'tpope/vim-unimpaired'         " Easy way to navigate the quickfix list
 
