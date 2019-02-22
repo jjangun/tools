@@ -10,12 +10,12 @@ if [ "$OSType" = 'Linux' ]; then
     fi
 
     echo "Install build packages"
-    $SUDO apt install \
+    $SUDO apt install -y \
         build-essential python3-dev clang automake1.11 \
         libncurses5-dev libncurses5
 
     echo "Install packages"
-    $SUDO apt install \
+    $SUDO apt install -y \
         git tig \
         wget curl  \
         zsh \
@@ -42,9 +42,6 @@ fi
 
 echo "Install oh-my-zsh"
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-
-echo "Change default shell to zsh"
-chsh -s `which zsh`
 
 echo "Change zsh theme"
 wget http://raw.github.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme -P ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/
@@ -126,3 +123,7 @@ elif [ "$OSType" = 'Darwin' ]; then
 fi
 
 echo "Completed!"
+
+echo "Change default shell to zsh"
+chsh -s `which zsh`
+
