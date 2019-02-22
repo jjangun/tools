@@ -9,12 +9,18 @@ if [ "$OSType" = 'Linux' ]; then
         SUDO="sudo"
     fi
 
+    echo "Install build packages"
     $SUDO apt install \
-        wget curl  \
-        zsh autojump silversearcher-ag tree \
-        git tig vim exuberant-ctags \
-        build-essential cmake python3-dev clang automake1.11 \
+        build-essential python3-dev clang automake1.11 \
         libncurses5-dev libncurses5
+
+    echo "Install packages"
+    $SUDO apt install \
+        git tig \
+        wget curl  \
+        zsh \
+        autojump silversearcher-ag tree \
+        vim cmake exuberant-ctags
 elif [ "$OSType" = 'Darwin' ]; then
     echo "Install xcode"
     xcode-select --install
@@ -24,10 +30,14 @@ elif [ "$OSType" = 'Darwin' ]; then
 
     echo "Install packages"
     brew install \
-        iterm2 \
+        git tig \
         wget curl \
-        zsh zsh-completions autojump \
-        git vim cmake
+        zsh zsh-completions \
+        autojump the_silver_searcher tree \
+        vim cmake ctags
+
+    echo "Install iterm2"
+    brew install iterm2
 fi
 
 echo "Install oh-my-zsh"
