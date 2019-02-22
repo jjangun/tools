@@ -78,7 +78,6 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 
 Plug 'joshdick/onedark.vim'
-Plug 'flazz/vim-colorschemes'
 
 " Initialize plugin system
 call plug#end()
@@ -206,7 +205,7 @@ map  N <Plug>(easymotion-prev)
 " }}}
 
 " Color scheme {{{
-colorscheme onedark
+silent! colorscheme onedark
 let g:airline_theme='onedark'
 " }}}
 
