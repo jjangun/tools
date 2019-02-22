@@ -57,6 +57,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 sed -i -- 's/(git)/(git autojump zsh-syntax-highlighting zsh-autosuggestions)/g' $HOME/.zshrc
 
+echo "Change default shell to zsh"
+chsh -s `which zsh`
+
 echo "Downloading... vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -123,7 +126,3 @@ elif [ "$OSType" = 'Darwin' ]; then
 fi
 
 echo "Completed!"
-
-echo "Change default shell to zsh"
-chsh -s `which zsh`
-
