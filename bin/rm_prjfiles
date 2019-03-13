@@ -1,5 +1,0 @@
-#!/bin/bash
-PRJDIRS=".prjdirs"
-rm $PRJDIRS
-rm cscope.*
-
