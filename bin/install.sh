@@ -51,6 +51,9 @@ sed -i -- 's/robbyrussell/bullet-train/g' $HOME/.zshrc
 echo "Enable syntax correct"
 echo "setopt correct" >> $HOME/.zshrc
 
+echo "Disable no_match" # for apt * wildcard
+echo "unsetopt no_match" >> $HOME/.zshrc
+
 echo "Install zsh plugins"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
