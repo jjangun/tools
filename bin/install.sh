@@ -37,7 +37,7 @@ elif [ "$OSType" = 'Darwin' ]; then
         vim cmake ctags
 
     echo "Install iterm2"
-    brew cask install iterm2
+    brew install iterm2
 fi
 
 echo "Install oh-my-zsh with auto exiting"
