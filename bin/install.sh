@@ -11,7 +11,7 @@ if [ "$OSType" = 'Linux' ]; then
 
     echo "Install build packages"
     $SUDO apt install -y \
-        build-essential python-dev python3-dev clang automake1.11 \
+        build-essential python-is-python3 python3-dev clang automake1.11 \
         libncurses5-dev libncurses5
 
     echo "Install packages"
