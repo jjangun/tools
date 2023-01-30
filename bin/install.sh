@@ -81,7 +81,7 @@ if [ "$OSType" = 'Linux' ]; then
     $HOME/.vim/plugged/YouCompleteMe/install.py --clang-completer
 
     echo "Install gnu global"
-    global_version="global-6.6.3"
+    global_version="global-6.6.9"
     global_archive=$global_version".tar.gz"
     global_down_url="http://ftp.gnu.org/gnu/global/"$global_archive
 
