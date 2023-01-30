@@ -104,6 +104,7 @@ if [ "$OSType" = 'Linux' ]; then
     git clone https://github.com/xaljox/fixpath.git $HOME/.tools/fixpath
     cd $HOME/.tools/fixpath
     ./configure --prefix=$HOME/.local
+    autoreconf -f -i
     make
     make install
 
