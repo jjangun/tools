@@ -116,6 +116,8 @@ if [ "$OSType" = 'Linux' ]; then
     $HOME/.fzf/install
 
     echo "Install terminal color"
+    $SUDO apt install -y \
+        dconf-cli uuid-runtime
     bash -c "$(wget -qO- https://git.io/vQgMr)"
 elif [ "$OSType" = 'Darwin' ]; then
     echo "Install YouCompleteMe"
