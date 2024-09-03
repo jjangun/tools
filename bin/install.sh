@@ -17,8 +17,8 @@ if [ "$OSType" = 'Linux' ]; then
     echo "Install packages"
     $SUDO apt install -y \
         git tig \
-        wget curl  \
-        zsh \
+        wget curl \
+        zsh ripgrep fzf \
         autojump silversearcher-ag tree \
         vim cmake exuberant-ctags
 elif [ "$OSType" = 'Darwin' ]; then
@@ -58,7 +58,7 @@ echo "Install zsh plugins"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-sed -i -- 's/(git)/(git autojump zsh-syntax-highlighting zsh-autosuggestions)/g' $HOME/.zshrc
+sed -i -- 's/(git)/(git autojump zsh-syntax-highlighting zsh-autosuggestions fzf)/g' $HOME/.zshrc
 
 echo "Change default shell to zsh"
 chsh -s `which zsh`
